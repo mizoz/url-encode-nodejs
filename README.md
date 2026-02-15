@@ -1,6 +1,12 @@
 # URL Encode Node.js
 
-A command-line tool for URL encoding and decoding.
+[![npm Version](https://img.shields.io/npm/v/url-encode-nodejs?style=flat-square)](https://www.npmjs.com/package/url-encode-nodejs)
+[![npm Downloads](https://img.shields.io/npm/dm/url-encode-nodejs?style=flat-square)](https://www.npmjs.com/package/url-encode-nodejs)
+[![License](https://img.shields.io/npm/l/url-encode-nodejs?style=flat-square)](LICENSE)
+[![Node Version](https://img.shields.io/node/v/url-encode-nodejs?style=flat-square)](https://www.npmjs.com/package/url-encode-nodejs)
+[![GitHub Stars](https://img.shields.io/github/stars/mizoz/url-encode-nodejs?style=flat-square)](https://github.com/mizoz/url-encode-nodejs)
+
+> A Node.js CLI tool for URL encoding and decoding with support for batch processing.
 
 ## Features
 
@@ -9,14 +15,17 @@ A command-line tool for URL encoding and decoding.
 - Batch processing support
 - Component vs full URL encoding
 - Special character handling
+- JavaScript/TypeScript API
 
 ## Installation
+
+### From npm
 
 ```bash
 npm install -g url-encode-nodejs
 ```
 
-Or clone and install:
+### From Source
 
 ```bash
 git clone https://github.com/mizoz/url-encode-nodejs.git
@@ -25,6 +34,8 @@ npm install
 ```
 
 ## Usage
+
+### Command Line
 
 ```bash
 # Encode a string
@@ -36,19 +47,43 @@ url-decode "Hello%20World%21"
 # Encode multiple strings
 url-encode "string1" "string2"
 
-# Encode as URL component (default)
+# Encode as URL component
 url-encode --component "Hello World"
 ```
 
-## Options
+### JavaScript API
 
-- `-d, --decode` - Decode instead of encode
-- `-c, --component` - Encode as URL component (default: false)
+```javascript
+const { URLEncoder } = require("url-encode-nodejs");
+
+const encoder = new URLEncoder();
+
+// Encode a string
+const encoded = encoder.encode("Hello World!");
+console.log(encoded);  // Hello%20World%21
+
+// Decode a string
+const decoded = encoder.decode("Hello%20World%21");
+console.log(decoded);  // Hello World!
+```
+
+## Requirements
+
+- Node.js 14+
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License
+This project is licensed under the MIT License.
 
 ## Author
 
-mizoz
+**mizoz**
+- GitHub: [@mizoz](https://github.com/mizoz)
+
+---
+
+⭐ If you find this project useful, please consider giving it a star on GitHub!
